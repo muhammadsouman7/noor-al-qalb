@@ -147,7 +147,7 @@ const playNextVerse = async() => {
     if (currentVerseIndex < verseList.length) {
         const ayah = verseList[currentVerseIndex];
         try {
-            const jsonApiUrl = `http://api.alquran.cloud/v1/ayah/${ayah}/ar.alafasy`;
+            const jsonApiUrl = `https://api.alquran.cloud/v1/ayah/${ayah}/ar.alafasy`;
             const response = await fetch(jsonApiUrl);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -191,5 +191,6 @@ window.playAudioFromCard = async(ayah) => {
     }
     playNextVerse();
 };
+
 
 document.addEventListener('DOMContentLoaded', fetchVerses);
