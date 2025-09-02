@@ -1,0 +1,384 @@
+:root {
+    --bg-gradient-start: #fce4ec;
+    --bg-gradient-end: #f3e5f5;
+    --primary-color: #8e24aa;
+    --primary-light: #d9a3e3;
+    --accent-color: #ec407a;
+    --text-dark: #4a148c;
+    --text-muted: #7b1fa2;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(142, 36, 170, 0.1);
+    --header-gradient-start: #ebbaf3;
+    --header-gradient-end: #fdbdd2;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 2rem;
+}
+
+.about-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 100;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.about-card {
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 1s ease-out;
+}
+
+.about-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.about-card .start-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.about-card .start-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.header-section {
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    padding: 3.5rem 2rem;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px var(--card-shadow);
+    animation: fadeIn 1.2s ease-out;
+    margin-bottom: 2.5rem;
+}
+
+.header-section h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-section p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.input-group-custom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.input-group-custom textarea {
+    border-radius: 15px;
+    padding: 1.2rem 1.8rem;
+    border: 2px solid var(--primary-light);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+    color: var(--text-dark);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    resize: vertical;
+    min-height: 120px;
+    width: 100%;
+}
+
+.input-group-custom textarea:focus {
+    box-shadow: 0 0 0 5px rgba(233, 30, 99, 0.3);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border-radius: 50px;
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.btn-submit:disabled {
+    background: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-submit:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+}
+
+.verse-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px var(--card-shadow);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: drop-in 0.6s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.verse-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ayah-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.verse-card h4 {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.verse-card .ayah-number {
+    font-weight: 700;
+    color: var(--primary-light);
+    font-size: 1.25rem;
+}
+
+.verse-card .arabic-text {
+    font-family: 'Lateef', 'Inter', sans-serif;
+    font-size: 2rem;
+    line-height: 2.4;
+    text-align: right;
+    margin: 1.5rem 0;
+}
+
+.verse-card .translation {
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.verse-card .note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid #ddd;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.verse-card .note strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.play-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.play-section p {
+    margin: 0;
+}
+
+.play-button {
+    width: 55px;
+    height: 55px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.15);
+    background: var(--primary-light);
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(233, 30, 99, 0.2);
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes drop-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    z-index: 1;
+    background: linear-gradient(-135deg, var(--primary-color), var(--primary-light));
+    padding-top: -20px;
+    box-shadow: 0 -2px 30px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    width: 100%;
+}
+
+footer .container {
+    padding: 10px 0;
+}
+
+.copyright {
+    font-size: 1.1rem;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.copyright a:hover {
+    color: var(--primary-color);
+}
+
+.social-links li a {
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.social-links li a:hover {
+    transform: translateY(-2px);
+    color: var(--primary-light);
+}
+
+@media (max-width: 767px) {
+    .footer .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ayah-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .verse-card .arabic-text {
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 373px) {
+    .ayah-header {
+        flex-direction: column;
+        justify-content: start;
+    }
+    .verse-card .ayah-number {
+        margin-top: 10px;
+    }
+    .play-button {
+        width: 45px;
+        height: 45px;
+    }
+}
