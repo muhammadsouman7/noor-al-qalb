@@ -317,10 +317,12 @@ footer {
     box-shadow: 0 -2px 30px rgba(0, 0, 0, 0.7);
     color: #fff;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 footer .container {
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .copyright {
